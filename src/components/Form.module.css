@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  
+
 }
 
 .form input {
@@ -48,8 +48,4 @@
 .form button:hover {
   background-color: var(--blue);
   cursor: pointer;
-}
-
-.form button span {
-  margin-top: 0.25rem;
 }

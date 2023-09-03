@@ -1,14 +1,32 @@
 import { CheckCircle, Circle, Trash } from 'phosphor-react'
 import styles from './Tasks.module.css'
+import { useState } from 'react'
+import { useTodos } from '../context/ContextTodos'
 
-export function Tasks() {
-  const isClicked = true
+type TasksProps = {
+  content: string
+}
+
+export function Tasks({ content }: TasksProps) {
+  const { handleRemoveTodo } = useTodos()
+  const [isClicked, setIsClicked] = useState(false)
+
+  function handleIsClicked(){
+    setIsClicked((prev) => !prev)
+  }
+
   return(
     <div className={styles.tasks}>
-      {isClicked ?<CheckCircle size={28} weight='fill' className={styles.clickedButton}/> : 
-      <Circle size={28} weight='bold' className={styles.notClickedButton}/> }
-      <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-      <Trash size={22} className={styles.trashSvg}/>
+      <button onClick={handleIsClicked} className={styles.addButton}>
+        { isClicked
+          ? <CheckCircle size={28} weight='fill' className={styles.clickedButton}/>
+          : <Circle size={28} weight='bold' className={styles.notClickedButton}/>
+        }
+      </button>
+      <p>{content}</p>
+      <button onClick={() => handleRemoveTodo(content)} className={styles.trashButton}>
+        <Trash size={22} className={styles.trashSvg}/>
+      </button>
     </div>
   )
 }
