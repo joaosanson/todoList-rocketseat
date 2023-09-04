@@ -11,21 +11,31 @@ export function Tasks({ content }: TasksProps) {
   const { handleRemoveTodo } = useTodos()
   const [isClicked, setIsClicked] = useState(false)
 
-  function handleIsClicked(){
+  function handleIsClicked() {
     setIsClicked((prev) => !prev)
   }
 
-  return(
+  return (
     <div className={styles.tasks}>
-      <button onClick={handleIsClicked} className={styles.addButton}>
-        { isClicked
-          ? <CheckCircle size={28} weight='fill' className={styles.clickedButton}/>
-          : <Circle size={28} weight='bold' className={styles.notClickedButton}/>
-        }
+      <button onClick={handleIsClicked} className={styles.clickButton}>
+        {isClicked ? (
+          <CheckCircle
+            size={28}
+            weight="fill"
+            className={styles.clickedButton}
+          />
+        ) : (
+          <Circle size={28} weight="bold" className={styles.notClickedButton} />
+        )}
       </button>
-      <p>{content}</p>
-      <button onClick={() => handleRemoveTodo(content)} className={styles.trashButton}>
-        <Trash size={22} className={styles.trashSvg}/>
+      <p className={isClicked ? styles.clickedContent : styles.content}>
+        {content}
+      </p>
+      <button
+        onClick={() => handleRemoveTodo(content)}
+        className={styles.trashButton}
+      >
+        <Trash size={22} className={styles.trashSvg} />
       </button>
     </div>
   )

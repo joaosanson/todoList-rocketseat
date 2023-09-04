@@ -1,6 +1,7 @@
 .tasks {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 50rem;
   height: 6rem;
   background-color: var(--gray-500);
@@ -22,6 +23,12 @@
   cursor: pointer;
 }
 
+.clickButton {
+  background-color: transparent;
+  border: 0;
+  margin-right: 1.5rem;
+}
+
 .clickedButton {
   margin-top: -1.5rem;
   color: var(--purple);
@@ -31,6 +38,12 @@
 .clickedButton:hover {
   color: var(--purple-dark);
   cursor: pointer;
+}
+
+.trashButton {
+  background-color: transparent;
+  border: 0;
+  margin-left: 1.5rem;
 }
 
 .trashSvg {
@@ -44,7 +57,13 @@
   cursor: pointer;
 }
 
-.tasks p {
+.content {
   color: var(--gray-200);
-  padding: 0 1rem 0 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.clickedContent {
+  text-decoration: line-through;
+  color: var(--gray-300);
 }
