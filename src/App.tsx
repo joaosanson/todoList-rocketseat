@@ -1,19 +1,15 @@
-// import styles from './App.module.css';
-import './global.css'
-
+import { ThemeProvider } from 'styled-components/'
+import { defaultTheme } from './styles/themes/default'
+import { GlobalStyle } from './styles/global'
 import { Header } from './components/Header'
-import { Form } from './components/Form'
-import { List } from './components/List'
-import { TodosProvider } from './context/ContextTodos'
+import { InputTask } from './components/InputTask'
 
-function App() {
+export function App() {
   return (
-    <TodosProvider>
+    <ThemeProvider theme={defaultTheme}>
       <Header />
-      <Form />
-      <List />
-    </TodosProvider>
+      <InputTask />
+      <GlobalStyle />
+    </ThemeProvider>
   )
 }
-
-export default App
