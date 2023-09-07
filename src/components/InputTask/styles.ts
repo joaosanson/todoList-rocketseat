@@ -39,5 +39,11 @@ export const InputForm = styled.form`
 
     border-radius: 8px;
     border: 0;
+
+    transition: 0.25s background-color;
+    &:hover {
+      cursor: pointer;
+      background-color: ${(props) => props.theme['--blue']};
+    }
   }
 `
